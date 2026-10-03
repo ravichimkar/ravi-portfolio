@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8080}
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/portfolio?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:portfolio}
+    password: ${DB_PASSWORD:portfolio_dev_password}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-development-secret-to-a-long-random-production-secret}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:30}
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173}
